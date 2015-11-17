@@ -1,0 +1,1 @@
+EXCLUDES="*setup.sh README.md LICENSE.md"

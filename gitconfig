@@ -1,0 +1,10 @@
+[user]
+	name = Tasdik Rahman
+	email = tasdik95@gmail.com
+[core]
+	editor = nano
+
+[color]
+	ui = true
+[credential]
+	helper = cache --timeout=3600
