@@ -15,6 +15,9 @@ alias g="git"
 alias h="history"
 alias j="jobs"
 
+##pretty print json files in terminal using python
+alias prettyjson='python -m json.tool'
+
 ## shows only hidden files in the directory
 alias lh="ls -ld .?*"       
 
