@@ -21,6 +21,14 @@ function mkd() {
     mkdir -p "$@" && cd "$_";
 }
 
+# Convert markdown to restructured text using pandoc
+function md2rst() {
+    fullname="$1"
+    filename="${fullname%.*}"
+    rstname="${filename}.rst"
+    pandoc --from=markdown --to=rst --output=`echo $rstname` "$1"
+}
+
 # # Change working directory to the top-most Finder window location
 # function cdf() { # short for `cdfinder`
 #     cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
