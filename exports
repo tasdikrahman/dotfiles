@@ -1,5 +1,11 @@
-# Make vim the default editor.
+# Make nano the default editor.
 export EDITOR='nano';
+
+# Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# Adds autocomplete for python interpreter
+export PYTHONSTARTUP=~/.pythonrc
 
 # Enable persistent REPL history for `node`.
 export NODE_REPL_HISTORY=~/.node_history;
