@@ -11,6 +11,14 @@ function md2rst() {
     pandoc --from=markdown --to=rst --output=`echo $rstname` "$1"
 }
 
+# Convert reStructured text to Markdown using pandoc
+function rst2md() {
+    fullname="$1"
+    filename="${fullname}%.*"
+    mdname="${filename}.md"
+    pandoc --from=rst --to=markdown --output=`echo $mdname` "$1"
+}
+
 # Determine size of a file or total size of a directory
 function fs() {
     if du -b /dev/null > /dev/null 2>&1; then
