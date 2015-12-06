@@ -14,7 +14,7 @@ function md2rst() {
 # Convert reStructured text to Markdown using pandoc
 function rst2md() {
     fullname="$1"
-    filename="${fullname}%.*"
+    filename="${fullname%.*}"
     mdname="${filename}.md"
     pandoc --from=rst --to=markdown --output=`echo $mdname` "$1"
 }
