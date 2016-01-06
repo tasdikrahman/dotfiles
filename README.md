@@ -2,7 +2,9 @@
 
 These are my dotfiles
 
-Warning: If you want to give these dotfiles a try, you should first fork this repository, review the code, and remove things you don’t want or need. Don’t blindly use my settings unless you know what that entails. **Use at your own risk!**
+**Warning:** 
+
+ If you want to give these dotfiles a try, you should first fork this repository, review the code, and remove things you don’t want or need. Don’t blindly use my settings unless you know what that entails. **Use at your own risk!**
 
 I am using [rcm](https://github.com/thoughtbot/rcm) and [git](https://git-scm.com) to manage  my `~/.dotfiles` and keep them in sync.
 
@@ -37,8 +39,8 @@ Here's what my `gnome-terminal` looks like
 
 ##Install
 
-- Clone this repo in you `HOME` directory first and then `cd` inside it.
-- Install and configure `git`
+- Clone this repo into your `HOME` directory first and then `cd` into it.
+- Install and configure `git` if you haven't done already.
 - run `install.sh`
 
 ##Related articles
