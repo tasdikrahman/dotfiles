@@ -8,6 +8,8 @@
 [color]
 	ui = true
 [alias]
+  ## most of these aliases are used directly from "https://github.com/skwp/dotfiles/blob/master/git/gitconfig"
+
   # add
   a = add                           # add
   chunkyadd = add --patch           # stage commits chunk by chunk
