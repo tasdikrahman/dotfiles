@@ -24,8 +24,28 @@ alias lh="ls -ld .?*"
 ## show random manpage
 alias ?='cowsay -f $(ls /usr/share/cowsay/cows | shuf -n 1 | cut -d. -f1) $(whatis $(ls /bin) 2>/dev/null | shuf -n 1)'
 
+###### GIT COMMANDS
 ## git log onliner
 alias gl='git log --oneline --graph --all --decorate'
+
+## move the files in current directory to staging area
+alias ga='git add .'
+
+## git commit 
+alias gc='git commit -m'
+
+## git branch
+alias gb='git branch'
+
+## git push -u origin 
+alias gp='git push origin HEAD'
+
+## git add and commit 
+alias gac='git add . && git commit -m'
+
+## git diff
+alias gd='git diff'
+######
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
