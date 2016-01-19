@@ -1,9 +1,24 @@
 # ~/.pythonrc
 # enable syntax completion
-try:
+
+#import rlcompleter, readline
+#readline.parse_and_bind('tab:complete')
+
+## Autocomplete : 
+## Source : http://stackoverflow.com/a/12334344/3834059
+import atexit
+import os
+import readline
+import rlcompleter
+
+historyPath = os.path.expanduser("~/.pyhistory")
+
+def save_history(historyPath=historyPath):
     import readline
-except ImportError:
-    print("Module readline not available.")
-else:
-    import rlcompleter
-    readline.parse_and_bind("tab: complete")
+    readline.write_history_file(historyPath)
+
+if os.path.exists(historyPath):
+    readline.read_history_file(historyPath)
+
+atexit.register(save_history)
+del os, atexit, readline, rlcompleter, save_history, historyPath
