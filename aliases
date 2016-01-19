@@ -13,7 +13,6 @@ alias dt="cd ~/Desktop"
 alias p="cd ~/Dropbox/projects"
 alias g="git"
 alias h="history"
-alias j="jobs"
 
 ##pretty print json files in terminal using python
 alias prettyjson='python -m json.tool'

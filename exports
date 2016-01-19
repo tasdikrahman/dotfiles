@@ -1,6 +1,14 @@
 # Make nano the default editor.
 export EDITOR='nano';
 
+## for enabling the package "autojump"
+## github: https://github.com/wting/autojump
+. /usr/share/autojump/autojump.sh
+
+# added by Anaconda3 2.4.1 installer
+## uncomment to use Anaconda installed
+# export PATH="/home/tasdik/anaconda3/bin:$PATH"
+
 # Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
