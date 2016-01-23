@@ -19,6 +19,15 @@ function rst2md() {
     pandoc --from=rst --to=markdown --output=`echo $mdname` "$1"
 }
 
+# Convert markdown to html
+function md2html() {
+    fullname="$1"
+    filename="${fullname%.*}"
+    mdname="${filename}.html"
+    pandoc --from=markdown --to=html --output=`echo $mdname` "$1"
+}
+
+
 # Determine size of a file or total size of a directory
 function fs() {
     if du -b /dev/null > /dev/null 2>&1; then
