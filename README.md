@@ -14,27 +14,31 @@ Here's what my `gnome-terminal` looks like
 
 ##Contents
 
-```bash
-.
-├── aliases
-├── bash_profile
-├── bash_prompt
-├── bashrc
-├── exports
-├── functions
-├── gemrc
-├── gitconfig
-├── install.sh
-├── nanorc
-├── path
-├── rcrc
-├── README.md
-├── selected_editor
-├── sqliterc
-├── tmux.conf
-└── vimrc
+```sh
+tasdik at Acer in ~/.dotfiles on master
+$ tree
+      1 .
+      2 ├── aliases
+      3 ├── bash_profile
+      4 ├── bash_prompt
+      5 ├── bashrc
+      6 ├── exports
+      7 ├── functions
+      8 ├── gemrc
+      9 ├── gitconfig
+     10 ├── install.sh
+     11 ├── nanorc
+     12 ├── path
+     13 ├── pythonrc
+     14 ├── rcrc
+     15 ├── README.md
+     16 ├── selected_editor
+     17 ├── sqliterc
+     18 ├── tmux.conf
+     19 └── vimrc
+     20 
+     21 0 directories, 18 files
 
-0 directories, 17 files
 ```
 
 ##Install
