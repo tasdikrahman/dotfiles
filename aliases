@@ -23,6 +23,10 @@ alias lh="ls -ld .?*"
 ## show random manpage
 alias ?='cowsay -f $(ls /usr/share/cowsay/cows | shuf -n 1 | cut -d. -f1) $(whatis $(ls /bin) 2>/dev/null | shuf -n 1)'
 
+## JEKYLL related
+alias jkb='bundle exec jekyll build'
+alias jks='bundle exec jekyll serve'
+
 ###### GIT COMMANDS
 ## >>> The commands were transferred to .gitconfig file 
 ## git log onliner
