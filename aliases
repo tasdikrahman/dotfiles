@@ -80,6 +80,9 @@ alias egrep='egrep --color=auto'
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
+# Start Jupyter Notebook on the current directory
+alias ipy='jupyter notebook'
+
 # Get week number
 alias week='date +%V'
 
