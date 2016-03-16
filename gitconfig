@@ -39,8 +39,8 @@
   cp = cherry-pick -x               # grab a change from a branch
 
   # diff
-  d = diff                          # diff unstaged changes
-  dc = diff --cached                # diff staged changes
+  d = diff --word-diff              # diff unstaged changes
+  dc = diff --cached --word-diff    # diff staged changes
   last = diff HEAD^                 # diff last committed change
 
   # log
@@ -60,6 +60,7 @@
   # rebase
   rc = rebase --continue            # continue rebase
   rs = rebase --skip                # skip rebase
+  rr = rebase -i --root master      # pick and rebase the commits that you want to pick up.
 
   # remote
   r = remote -v                     # show remotes (verbose)
