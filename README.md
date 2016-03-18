@@ -1,6 +1,6 @@
 ##dotfiles
 
-These are my dotfiles
+@tasdikrahman does **dotfiles**
 
 **Warning:** 
 
@@ -41,20 +41,32 @@ $ tree
 
 ```
 
-##Install
+## Install
 
-- Clone this repo into your `HOME` directory first and then `cd` into it.
+- Clone it to your `HOME` directory
+
+```sh
+$ cd ~
+$ git clone https://github.com/prodicus/dotfiles
+```
+
 - Install and configure `git` if you haven't done already.
+
 - run `install.sh`
 
-##Related articles
+```sh
+$ mv dotfiles/ .dotfiles && cd .dotfiles
+$ bash install.sh
+```
+
+## Related articles
 
 - [http://thoughtbot.github.io/rcm/rcm.7.html](http://thoughtbot.github.io/rcm/rcm.7.html)
 - [https://robots.thoughtbot.com/rcm-for-rc-files-in-dotfiles-repos](https://robots.thoughtbot.com/rcm-for-rc-files-in-dotfiles-repos)
 - [http://blog.jez.io/2015/03/09/getting-started-with-rcm/](http://blog.jez.io/2015/03/09/getting-started-with-rcm/)
 - [https://github.com/thoughtbot/rcm](https://github.com/thoughtbot/rcm)
 
-##Influences
+## Influences
 
 My dotfiles are heavily influenced by 
 
@@ -62,6 +74,11 @@ My dotfiles are heavily influenced by
 - [https://github.com/jez/dotfiles/](https://github.com/jez/dotfiles/)
 - [https://github.com/padde/dotfiles](https://github.com/padde/dotfiles)
 
-## License :
+## Issues
 
-MIT License [http://prodicus.mit-license.org/](http://prodicus.mit-license.org/) &copy; Tasdik Rahman
+Tweet me [@tasdikrahman](https://twitter.com/tasdikrahman) if you had any problems installing these dotfiles. Well you can create a an [issue too](https://github.com/prodicus/dotfiles/issues)
+
+## Legal stuff
+
+Used and maintained by [Tasdik Rahman](http://tasdikrahman.me) [(@tasdikrahman)](https://twitter.com/tasdikrahman) MIT Licensed [http://prodicus.mit-license.org/](http://prodicus.mit-license.org/)
+
