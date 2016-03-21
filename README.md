@@ -1,4 +1,4 @@
-##dotfiles
+## dotfiles
 
 @tasdikrahman does **dotfiles**
 
@@ -12,7 +12,7 @@ Here's what my `gnome-terminal` looks like
 
 ![gnome-terminal-imgur-link](http://i.imgur.com/KfQ59v6.jpg)
 
-##Contents
+## Contents
 
 ```sh
 tasdik at Acer in ~/.dotfiles on master

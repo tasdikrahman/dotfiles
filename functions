@@ -27,6 +27,11 @@ function md2html() {
     pandoc --from=markdown --to=html --output=`echo $mdname` "$1"
 }
 
+# Download a youtube video in mp3 format(best available quality) usign youtube-dl
+function youtubemp3-dl() {
+    link="$1"
+    /usr/local/bin/youtube-dl --extract-audio --audio-format mp3 --audio-quality 0 "$1"
+} 
 
 # Determine size of a file or total size of a directory
 function fs() {
