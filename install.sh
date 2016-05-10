@@ -1,6 +1,20 @@
-## Run this in $HOME dir
+## Run this in your $HOME dir
 
-## clone you repo from "https://github.com/prodicus/dotfiles.git" in your home directory and then run this script
+# clone you repo from "https://github.com/prodicus/dotfiles.git" in your home
+# directory and then run this script as root
+
+## installing rcm
+add-apt-repository ppa:martin-frost/thoughtbot-rcm
+apt-get update
+
+## installing dependencies
+apt-get install rcm
+apt-get install tree
+apt-get install cowsay
+apt-get install python-pip
+apt-get install vim
+apt-get install tmux
+pip install virtualenv
 
 DOTFILES=~/.dotfiles
 if [ -d $DOTFILES ]; then
@@ -8,12 +22,10 @@ if [ -d $DOTFILES ]; then
   exit 1
 fi
 
-# install rcm
-sudo -E add-apt-repository ppa:martin-frost/thoughtbot-rcm
-sudo apt-get update
-sudo apt-get install rcm
+# cloning the repo
+cd ~
+git clone https://github.com/prodicus/dotfiles .dotfiles
 
 # Symlink dotfiles
-rcup -v rcrc
-rcup -v
-# done
+rcup -v 
+

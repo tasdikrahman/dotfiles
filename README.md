@@ -43,21 +43,18 @@ $ tree
 
 ## Install
 
-- Clone it to your `HOME` directory
+**NOTE**: This process assumes that you don't have any existing `rc` files in your `~/.dotfiles` directory. If it exists, take a backup of it.
 
 ```sh
-$ cd ~
-$ git clone https://github.com/prodicus/dotfiles
+$ bash <(curl -s https://raw.githubusercontent.com/prodicus/dotfiles/master/install.sh)
 ```
 
-- Install and configure `git` if you haven't done already.
+This will get you up and running with my dotfiles. Enjoy!
 
-- run `install.sh`
+## Notes
 
-```sh
-$ mv dotfiles/ .dotfiles && cd .dotfiles
-$ bash install.sh
-```
+
+- I am using the awesome [spf13 extensions](http://vim.spf13.com/) for my vim configurations. 
 
 ## Related articles
 
@@ -76,7 +73,9 @@ My dotfiles are heavily influenced by
 
 ## Issues
 
-Tweet me [@tasdikrahman](https://twitter.com/tasdikrahman) if you had any problems installing these dotfiles. Well you can create a an [issue too](https://github.com/prodicus/dotfiles/issues)
+You can tweet to me at [@tasdikrahman](https://twitter.com/tasdikrahman) if you had any problems installing these dotfiles. 
+
+You can also create an [issue](https://github.com/prodicus/dotfiles/issues)
 
 ## Legal stuff
 
