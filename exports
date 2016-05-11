@@ -1,5 +1,5 @@
 # Make nano the default editor.
-export EDITOR='nano';
+export EDITOR='vim';
 
 ## for enabling the package "autojump"
 ## github: https://github.com/wting/autojump

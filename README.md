@@ -12,32 +12,45 @@ Here's what my `gnome-terminal` looks like
 
 ![gnome-terminal-imgur-link](http://i.imgur.com/KfQ59v6.jpg)
 
+As for `vim`. This is what my vim looks like
+
+![vim runtime](http://i.imgur.com/Zc6qvql.png)
+
+Looks good right? I know :smile:
+
+Happy coding!
+
 ## Contents
 
 ```sh
 tasdik at Acer in ~/.dotfiles on master
-$ tree
-      1 .
-      2 ├── aliases
-      3 ├── bash_profile
-      4 ├── bash_prompt
-      5 ├── bashrc
-      6 ├── exports
-      7 ├── functions
-      8 ├── gemrc
-      9 ├── gitconfig
-     10 ├── install.sh
-     11 ├── nanorc
-     12 ├── path
-     13 ├── pythonrc
-     14 ├── rcrc
-     15 ├── README.md
-     16 ├── selected_editor
-     17 ├── sqliterc
-     18 ├── tmux.conf
-     19 └── vimrc
-     20 
-     21 0 directories, 18 files
+$ tree -L 2
+.
+├── aliases
+├── bash_profile
+├── bash_prompt
+├── bashrc
+├── curlrc
+├── exports
+├── functions
+├── gemrc
+├── gitconfig
+├── install.sh
+├── nanorc
+├── path
+├── pythonrc
+├── rcrc
+├── README.md
+├── selected_editor
+├── sqliterc
+├── tmux.conf
+├── vim
+│   └── bundle
+├── vimrc
+├── vimrc.before
+└── vimrc.bundles
+
+2 directories, 21 files
 
 ```
 
@@ -53,8 +66,21 @@ This will get you up and running with my dotfiles. Enjoy!
 
 ## Notes
 
-
 - I am using the awesome [spf13 extensions](http://vim.spf13.com/) for my vim configurations. 
+
+You can the color schemes to 
+
+- ir_black
+- molokai
+- peaksea
+
+To change the color scheme to `molokai`,
+
+```sh
+:color molokai
+```
+
+will do the magic.
 
 ## Related articles
 
