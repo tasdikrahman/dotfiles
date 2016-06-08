@@ -25,6 +25,13 @@ export NODE_REPL_MODE='sloppy';
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
 export PYTHONIOENCODING='UTF-8';
 
+# adding go-lang to path
+export PATH=$PATH:/usr/local/go/bin
+
+# specifying go path
+export GOPATH=/home/tasdik/Dropbox/projects/go-lang
+export PATH=$PATH:$GOPATH/bin
+
 # Increase Bash history size. Allow 32³ entries; the default is 500.
 export HISTSIZE='32768';
 export HISTFILESIZE="${HISTSIZE}";
