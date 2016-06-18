@@ -2,9 +2,9 @@
 	name = Tasdik Rahman
 	email = tasdik95@gmail.com
 [core]
-	editor = nano
+	editor = vim
 [push]
-  default = current
+    default = current
 [color]
 	ui = true
 [alias]
@@ -23,6 +23,9 @@
 
   # branch
   b = branch -v                     # branch (verbose)
+
+  # showing all tracked files by the current git repo
+  tf = ls-tree -r master --name-only
 
   # commit
   c = commit -m                     # commit with message
