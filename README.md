@@ -82,6 +82,12 @@ To change the color scheme to `molokai`,
 
 will do the magic.
 
+For updating single file using `rcup`, you can do a
+
+```sh
+$ rcup <filename>
+```
+
 ## Related articles
 
 - [http://thoughtbot.github.io/rcm/rcm.7.html](http://thoughtbot.github.io/rcm/rcm.7.html)
