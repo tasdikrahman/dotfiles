@@ -258,3 +258,6 @@ ino ( ()<left>
 ino [ []<left>
 ino { {}<left>
 ino {<CR> {<CR>}<ESC>O
+
+"Remove trailing whitespaces on save
+autocmd BufWritePre *.js :%s/\s\+$//e
