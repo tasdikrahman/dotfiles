@@ -45,3 +45,4 @@ fi;
 
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Chrome Mozilla nautilus subl" killall;
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
