@@ -21,9 +21,14 @@ servers = (
 chatnets = {
   Freenode = {
     type = "IRC";
-    nick = "changeme";
-    autosendcmd = "/msg nickserv identify <password removed> ;wait 2000";
+    nick = "tasdikrahman";
+    autosendcmd = "/msg nickserv identify <pass>;wait 2000";
   };
+  OFTC = {
+    type = "IRC";
+    nick = "tasdikrahman";
+    autosendcmd = "/msg nickserv identify <pass>;wait 2000";
+ };
 };
 
 aliases = {
@@ -188,6 +193,10 @@ statusbar = {
   };
 };
 settings = {
-  core = { real_name = "Unknown"; user_name = "<your_user_name>"; nick = "<your_nick>"; };
+  core = {
+    real_name = "Tasdik";
+    user_name = "tasdikrahman";
+    nick = "tasdikrahman";
+  };
   "fe-text" = { actlist_sort = "refnum"; };
 };
