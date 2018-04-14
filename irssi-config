@@ -24,12 +24,18 @@ chatnets = {
     nick = "tasdikrahman";
     autosendcmd = "/msg nickserv identify <pass>;wait 2000";
   };
+  Freenode = {
+    type = "IRC";
+    nick = "tasdikrahman";
+    autosendcmd = "/msg nickserv set enforce on;wait 2000";
+  };
   OFTC = {
     type = "IRC";
     nick = "tasdikrahman";
     autosendcmd = "/msg nickserv identify <pass>;wait 2000";
  };
 };
+
 
 aliases = {
   J = "join";
