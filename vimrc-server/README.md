@@ -1,0 +1,1 @@
+- a bare minimal vimrc for servers inspired by https://github.com/wklken/vim-for-server
