@@ -1,0 +1,2 @@
+- install by following the guide here for vundle https://github.com/VundleVim/Vundle.vim
+-
