@@ -1,11 +1,18 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
+
 set encoding=utf8
 let g:airline_powerline_fonts = 1
 
 set rtp+=~/.vim/bundle/Vundle.vim
-set paste
 set ignorecase
 call vundle#begin()
 
