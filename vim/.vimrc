@@ -20,6 +20,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-commentary'
+noremap <leader>/ :Commentary<cr>
 
 Plugin 'scrooloose/syntastic'
 set statusline+=%#warningmsg#
