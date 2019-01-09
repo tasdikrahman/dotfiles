@@ -32,6 +32,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+" https://github.com/fatih/vim-go/issues/886#issuecomment-223842173
+" Synastic doesn't check Go files on save by default (anymore), this restores that behaviour
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 Plugin 'Yggdroot/indentLine'
 
