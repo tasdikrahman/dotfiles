@@ -151,4 +151,5 @@ source /usr/local/etc/zsh-kubectl-prompt/kubectl.zsh
 RPROMPT='%{$fg[cyan]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 #RPROMPT='%{$fg_bold[blue]%} %D %T % %{$reset_color%} {$fg[cyan]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 
-
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
