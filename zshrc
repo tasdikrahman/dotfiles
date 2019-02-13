@@ -51,7 +51,9 @@ ZSH_THEME="steeef"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-completions kubectl)
+plugins=(
+  git autojump brew history kubectl git-flow
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -98,6 +100,8 @@ source /usr/local/bin/virtualenvwrapper.sh
 # alias
 alias ls="ls -la"
 
+# ruby
+alias be='bundle exec'
 
 # docker aliases
 function dcleanup(){
@@ -121,6 +125,7 @@ alias kgpa='kubectl get pods --all-namespaces'
 alias kgpn='kubectl get pods -o wide -n '
 alias kgpa='kubectl get pods --all-namespaces'
 alias kno='kubectl get nodes'
+alias k='kubectl'
 function kpssh { kubectl exec -it $1 -n $2 sh  }
 function kgpc { kubectl get pods -n $1 }
 function kgl { kubectl logs $1 -n $2 }
