@@ -80,6 +80,9 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
 
+Plugin 'hashivim/vim-terraform'
+let g:terraform_fmt_on_save=1
+let g:terraform_align=1
 
 Plugin 'fatih/vim-go'
 let g:go_fmt_command = "gofmt"
