@@ -1,4 +1,6 @@
 # Linux - basic prerequisites
+set -e
+
 sudo apt-get update
 
 sudo apt-get install -y \
@@ -14,7 +16,24 @@ sudo apt-get install -y \
   cmatrix \
   wget \
   telnet \
-  zsh
+  zsh \
+  pwgen \
+  net-tools \
+  virtualbox \
+  gnome-tweak-tool \
+  vlc \
+  build-essential\
+      autoconf\
+      automake\
+      cmake\
+      libtool\
+  docker-engine\
+  inotify-tools\
+  jq\
+  sbt\
+      maven\
+      openjdk-8-jdk\
+  shellcheck
 
 # Git config
 wget https://raw.githubusercontent.com/tasdikrahman/dotfiles/master/gitconfig --output-document=~/.gitconfig
