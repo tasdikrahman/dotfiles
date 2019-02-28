@@ -94,6 +94,8 @@ let g:go_fmt_command = "gofmt"
 let g:go_fmt_command = "goimports"
 let g:go_def_mode = 'guru'
 
+Plugin 'terryma/vim-multiple-cursors'
+
 set syntax=off
 set ft=text
 set conceallevel=0
