@@ -12,6 +12,9 @@ inoremap {;<CR> {<CR>};<ESC>O
 set encoding=utf8
 let g:airline_powerline_fonts = 1
 
+" https://github.com/scrooloose/nerdtree/issues/928
+let g:NERDTreeNodeDelimiter = "\u00a0"
+
 set rtp+=~/.vim/bundle/Vundle.vim
 set ignorecase
 call vundle#begin()
