@@ -1,49 +1,41 @@
 #!/usr/bin/env bash
 
-# Install command-line tools using Homebrew.
+# Install Homebrew or make sure it's up to date.
+which -s brew
+if [[ $? != 0 ]] ; then
+	info "Installing"
+	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+else
+	info "Updating"
+	brew update
+	brew upgrade
+fi
 
-# Make sure we’re using the latest Homebrew.
-brew update
+# Disable analytics.
+brew analytics off
 
-# Upgrade any already-installed formulae.
-brew upgrade
+echo "Installing essentials"
 
-# Save Homebrew’s installed location.
-BREW_PREFIX=$(brew --prefix)
-
-# Install GNU core utilities (those that come with macOS are outdated).
-# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
-brew install coreutils
-ln -s "${BREW_PREFIX}/bin/gsha256sum" "${BREW_PREFIX}/bin/sha256sum"
-
-# Install some other useful utilities like `sponge`.
-brew install moreutils
-# Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
-brew install findutils
-# Install GNU `sed`, overwriting the built-in `sed`.
-brew install gnu-sed --with-default-names
-# Install Bash 4.
-brew install bash
-brew install bash-completion2
-
-# Switch to using brew-installed bash as default shell
-if ! fgrep -q "${BREW_PREFIX}/bin/bash" /etc/shells; then
-  echo "${BREW_PREFIX}/bin/bash" | sudo tee -a /etc/shells;
-  chsh -s "${BREW_PREFIX}/bin/bash";
-fi;
-
-# Install `wget` with IRI support.
-brew install wget --with-iri
-
-# Install GnuPG to enable PGP-signing commits.
+brew install ag
+brew install git
+brew install git-lfs
 brew install gnupg
-
-# Install more recent versions of some macOS tools.
-brew install vim --with-override-system-vi
-brew install grep
-brew install openssh
-brew install screen
+brew install htop
+brew install imagemagick
+brew install lcov
+brew install libxml2
+brew install ncdu
+brew install neovim
+brew install python
+brew install ripgrep
+brew install rsync
+brew install the_silver_searcher
+brew install tig
 brew install tmux
+brew install tree
+brew install unrar
+brew install vim
+brew install wget --with-iri
 
 # Install some CTF tools; see https://github.com/ctfs/write-ups.
 brew install binutils
@@ -54,12 +46,6 @@ brew install telnet
 brew install tcptrace
 brew install ucspi-tcp # `tcpserver` etc.
 
-# Install other useful binaries.
-brew install ack
-brew install git
-brew install ssh-copy-id
-brew install tree
-
 # Install Ruby related tools
 brew install rbenv
 brew install gem-rehash
@@ -68,6 +54,10 @@ brew install gemset
 
 # Install terraform related tools
 brew install tfenv
+
+echo "Linking apps"
+
+brew linkapps
 
 # Remove outdated versions from the cellar.
 brew cleanup
