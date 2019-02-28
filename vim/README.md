@@ -16,6 +16,7 @@ install the fonts inside the `./fonts` dir and move them to
 
 - install the fonts by following the steps here https://github.com/ryanoasis/vim-devicons/issues/198#issuecomment-338769056
 
+The droid sans fonts can be found here https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/DroidSansMono/complete
 
 #### for linux
 
