@@ -12,8 +12,8 @@ inoremap {;<CR> {<CR>};<ESC>O
 set encoding=utf8
 let g:airline_powerline_fonts = 1
 
-" https://github.com/scrooloose/nerdtree/issues/928
-let g:NERDTreeNodeDelimiter = "\u00a0"
+" https://vi.stackexchange.com/q/202
+:set mouse=a
 
 set rtp+=~/.vim/bundle/Vundle.vim
 set ignorecase
@@ -44,6 +44,8 @@ Plugin 'Yggdroot/indentLine'
 
 Plugin 'scrooloose/nerdtree'
 autocmd vimenter * NERDTree
+" https://github.com/scrooloose/nerdtree/issues/928
+let g:NERDTreeNodeDelimiter = "\u00a0"
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
