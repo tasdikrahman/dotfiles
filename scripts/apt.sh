@@ -39,7 +39,6 @@ sudo apt-get install -y \
 # Git config
 wget https://raw.githubusercontent.com/tasdikrahman/dotfiles/master/gitconfig --output-document=~/.gitconfig
 
-
 # Generate SSH keys
 file="~/.ssh/id_rsa"
 if ! [ -f "$file" ]; then
@@ -60,4 +59,3 @@ chsh -s `which zsh`
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 wget https://raw.githubusercontent.com/tasdikrahman/dotfiles/master/vim/vimrc --output-document=~/.vimrc
 vim +PluginInstall +qall
-

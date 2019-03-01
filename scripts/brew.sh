@@ -63,3 +63,18 @@ brew linkapps
 
 # Remove outdated versions from the cellar.
 brew cleanup
+
+# Git config
+wget https://raw.githubusercontent.com/tasdikrahman/dotfiles/master/gitconfig --output-document=~/.gitconfig
+
+# Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+wget https://raw.githubusercontent.com/tasdikrahman/dotfiles/master/zshrc --output-document=~/.zshrc
+
+# change default shell to zsh
+chsh -s `which zsh`
+
+# Install vundle
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+wget https://raw.githubusercontent.com/tasdikrahman/dotfiles/master/vim/vimrc --output-document=~/.vimrc
+vim +PluginInstall +qall
