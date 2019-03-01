@@ -1,0 +1,34 @@
+{
+    "editor.trimAutoWhitespace": true,
+    "json.format.enable": true,
+    "files.associations": {
+        "Dockerfile-*": "dockerfile",
+        "*.yml.*": "yaml",
+        "*.tpl": "shellscript",
+        "*.tf": "terraform",
+        "*.tf_": "terraform",
+        "*.tf.override": "terraform",
+    },
+    "editor.rulers": [
+        120
+    ],
+    "[terraform]": {
+        "editor.formatOnSave": true
+    },
+    "terraform.format": {
+        "enable": true,
+        "formatOnSave": true
+    },
+    "terraform.path": "/usr/local/bin/terraform",
+    "terraform.lintPath": "/usr/local/bin/tflint",
+    "terraform.codelens.enabled": true,
+    "terraform.indexing": {
+        "enabled": true,
+        "liveIndexing": false,
+        "delay": 500,
+        "exclude": [
+            ".terraform/**/*",
+            "**/.terraform/**/*"
+        ]
+    }
+}
