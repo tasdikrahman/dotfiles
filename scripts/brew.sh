@@ -50,9 +50,9 @@ brew install ucspi-tcp # `tcpserver` etc.
 
 # Install Ruby related tools
 brew install rbenv
-brew install gem-rehash
-brew install default-gems
-brew install gemset
+brew install rbenv-gem-rehash
+brew install rbenv-default-gems
+brew install rbenv-gemset
 
 # Install terraform related tools
 brew install tfenv
