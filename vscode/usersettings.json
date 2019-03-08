@@ -8,10 +8,12 @@
         "*.tf": "terraform",
         "*.tf_": "terraform",
         "*.tf.override": "terraform",
+        "*.rb": "ruby",
     },
     "editor.rulers": [
         120
     ],
+    "files.insertFinalNewline": true,
     "[terraform]": {
         "editor.formatOnSave": true
     },
@@ -31,4 +33,18 @@
             "**/.terraform/**/*"
         ]
     }
+    "ruby.codeCompletion": "rcodetools",
+    "ruby.format": "rubocop",
+    "ruby.intellisense": "rubyLocate",
+    "ruby.lint": {
+        "reek": true,
+        "rubocop": true,
+        "ruby": true, //Runs ruby -wc
+        "fasterer": true,
+        "debride": true,
+        "ruby-lint": true
+    },
+    "[ruby]": {
+        "editor.tabSize": 2
+    },
 }
