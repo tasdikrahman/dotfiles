@@ -78,3 +78,7 @@ chsh -s `which zsh`
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 wget https://raw.githubusercontent.com/tasdikrahman/dotfiles/master/vim/vimrc --output-document=~/.vimrc
 vim +PluginInstall +qall
+
+# Install zsh plugins
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+

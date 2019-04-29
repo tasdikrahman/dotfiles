@@ -52,7 +52,13 @@ ZSH_THEME="steeef"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git autojump brew history kubectl git-flow
+  git
+  autojump
+  brew
+  history
+  kubectl
+  git-flow
+  zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
