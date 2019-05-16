@@ -38,6 +38,7 @@ brew install vim
 brew install wget --with-iri
 brew install mosh
 brew install shellcheck
+brew install fzf
 
 # Install some CTF tools; see https://github.com/ctfs/write-ups.
 brew install binutils
