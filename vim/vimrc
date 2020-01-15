@@ -43,7 +43,7 @@ let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 Plugin 'Yggdroot/indentLine'
 
 Plugin 'scrooloose/nerdtree'
-autocmd vimenter * NERDTree
+"autocmd vimenter * NERDTree
 " https://github.com/scrooloose/nerdtree/issues/928
 let g:NERDTreeNodeDelimiter = "\u00a0"
 
