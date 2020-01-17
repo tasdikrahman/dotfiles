@@ -38,6 +38,7 @@ let g:syntastic_check_on_wq = 0
 " https://github.com/fatih/vim-go/issues/886#issuecomment-223842173
 " Synastic doesn't check Go files on save by default (anymore), this restores that behaviour
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_ruby_checkers=['mri', 'rubocop']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 Plugin 'Yggdroot/indentLine'
@@ -93,6 +94,8 @@ Plugin 'fatih/vim-go'
 let g:go_fmt_command = "gofmt"
 let g:go_fmt_command = "goimports"
 let g:go_def_mode = 'guru'
+
+Plugin 'vim-ruby/vim-ruby'
 
 " Language agnostic test runner
 Plugin 'janko/vim-test'
