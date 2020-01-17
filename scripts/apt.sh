@@ -35,6 +35,7 @@ sudo apt-get install -y \
       openjdk-8-jdk\
   shellcheck \
   mosh
+  ctags
 
 # Git config
 wget https://raw.githubusercontent.com/tasdikrahman/dotfiles/master/gitconfig --output-document=~/.gitconfig

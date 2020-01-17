@@ -55,6 +55,8 @@ brew install rbenv-gem-rehash
 brew install rbenv-default-gems
 brew install rbenv-gemset
 
+brew install ctags
+
 # Install terraform related tools
 brew install tfenv
 
