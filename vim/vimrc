@@ -95,7 +95,10 @@ let g:go_fmt_command = "gofmt"
 let g:go_fmt_command = "goimports"
 let g:go_def_mode = 'guru'
 
+" Ruby Specific plugins
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rails'
+Plugin 'vim-scripts/rainbow-end'
 
 " Language agnostic test runner
 Plugin 'janko/vim-test'
