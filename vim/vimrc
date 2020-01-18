@@ -26,7 +26,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-commentary'
 noremap <leader>/ :Commentary<cr>
 
-Plugin 'scrooloose/syntastic'
+Plugin 'vim-syntastic/syntastic'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
