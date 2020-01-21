@@ -102,6 +102,9 @@ Plugin 'vim-scripts/rainbow-end'
 
 " Language agnostic test runner
 Plugin 'janko/vim-test'
+" S would be SHIFT"
+map <C-S-r> :TestNearest<CR>
+map <C-S-f> :TestFile<CR>
 
 Plugin 'terryma/vim-multiple-cursors'
 
