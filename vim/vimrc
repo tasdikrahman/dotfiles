@@ -95,6 +95,8 @@ let g:go_fmt_command = "gofmt"
 let g:go_fmt_command = "goimports"
 let g:go_def_mode = 'guru'
 
+Plugin 'sebdah/vim-delve'
+
 " Ruby Specific plugins
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
@@ -105,6 +107,7 @@ Plugin 'janko/vim-test'
 " S would be SHIFT"
 map <C-S-r> :TestNearest<CR>
 map <C-S-f> :TestFile<CR>
+map <C-S-d> :DlvTest<CR>
 
 Plugin 'terryma/vim-multiple-cursors'
 
