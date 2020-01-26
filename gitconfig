@@ -2,7 +2,7 @@
 	name = Tasdik Rahman
 	email = tasdik95@gmail.com
 [core]
-	editor = vim
+	editor = nvim
 [push]
     default = current
 [color]

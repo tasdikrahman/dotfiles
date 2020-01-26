@@ -34,8 +34,9 @@ sudo apt-get install -y \
       maven\
       openjdk-8-jdk\
   shellcheck \
-  mosh
-  ctags
+  mosh \
+  ctags \
+  neovim
 
 # Git config
 wget https://raw.githubusercontent.com/tasdikrahman/dotfiles/master/gitconfig --output-document=~/.gitconfig
