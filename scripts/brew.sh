@@ -88,3 +88,6 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 # Install zsh-plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/paulirish/git-open.git $ZSH_CUSTOM/plugins/git-open
+
+# Install plugin requirements
+$(brew --prefix)/opt/fzf/install

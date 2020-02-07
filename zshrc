@@ -169,3 +169,5 @@ eval "$(rbenv init -)"
 # k8s zsh context
 autoload -U colors; colors
 RPROMPT='%{$fg[red]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

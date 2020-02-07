@@ -17,6 +17,7 @@ sudo apt-get install -y \
   wget \
   telnet \
   zsh \
+  fzf \
   pwgen \
   net-tools \
   virtualbox \
