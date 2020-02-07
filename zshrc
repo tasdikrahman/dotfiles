@@ -59,6 +59,7 @@ plugins=(
   kubectl
   git-flow
   zsh-autosuggestions
+  git-open
 )
 
 source $ZSH/oh-my-zsh.sh
