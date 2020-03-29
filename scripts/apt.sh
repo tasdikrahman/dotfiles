@@ -15,6 +15,7 @@ sudo apt-get install -y \
   tree \
   xclip \
   sl \
+  redshift \
   cmatrix \
   wget \
   telnet \
