@@ -7,6 +7,7 @@ sudo apt-get install -y \
   git \
   curl \
   tmux \
+  autojump \
   silversearcher-ag \
   jq \
   htop \
@@ -17,7 +18,6 @@ sudo apt-get install -y \
   wget \
   telnet \
   zsh \
-  fzf \
   pwgen \
   net-tools \
   virtualbox \
@@ -31,16 +31,13 @@ sudo apt-get install -y \
   docker-engine\
   inotify-tools\
   jq\
-  sbt\
-      maven\
-      openjdk-8-jdk\
   shellcheck \
   mosh \
   ctags \
   neovim
 
 # Git config
-wget https://raw.githubusercontent.com/tasdikrahman/dotfiles/master/gitconfig --output-document=~/.gitconfig
+wget -O ~/.gitconfig https://raw.githubusercontent.com/tasdikrahman/dotfiles/master/gitconfig
 
 # Generate SSH keys
 file="~/.ssh/id_rsa"
@@ -53,7 +50,7 @@ fi
 
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-wget https://raw.githubusercontent.com/tasdikrahman/dotfiles/master/zshrc --output-document=~/.zshrc
+wget -O ~/.zshrc https://raw.githubusercontent.com/tasdikrahman/dotfiles/master/zshrc
 
 # change default shell to zsh
 chsh -s `which zsh`
