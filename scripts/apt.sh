@@ -36,7 +36,8 @@ sudo apt-get install -y \
   shellcheck \
   mosh \
   ctags \
-  neovim
+  neovim \
+      fonts-powerline
 
 # Git config
 wget -O ~/.gitconfig https://raw.githubusercontent.com/tasdikrahman/dotfiles/master/gitconfig
