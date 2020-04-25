@@ -37,7 +37,10 @@ sudo apt-get install -y \
   mosh \
   ctags \
   neovim \
-      fonts-powerline
+      fonts-powerline \
+  libssl-dev \
+      libreadline-dev \
+      zlib1g-dev-v
 
 # Git config
 wget -O ~/.gitconfig https://raw.githubusercontent.com/tasdikrahman/dotfiles/master/gitconfig
