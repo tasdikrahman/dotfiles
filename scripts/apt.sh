@@ -25,6 +25,7 @@ sudo apt-get install -y \
   virtualbox \
   gnome-tweak-tool \
   vlc \
+  clipit \
   build-essential\
       autoconf\
       automake\
