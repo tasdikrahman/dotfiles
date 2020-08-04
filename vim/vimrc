@@ -47,15 +47,18 @@ Plugin 'scrooloose/nerdtree'
 "autocmd vimenter * NERDTree
 " https://github.com/scrooloose/nerdtree/issues/928
 let g:NERDTreeNodeDelimiter = "\u00a0"
-
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
+nmap <silent> <C-e>        :NERDTreeToggle<CR>
+vmap <silent> <C-e> <Esc>  :NERDTreeToggle<CR>
+omap <silent> <C-e>        :NERDTreeToggle<CR>
+imap <silent> <C-e> <Esc>  :NERDTreeToggle<CR>
+cmap <silent> <C-e> <C-u>  :NERDTreeToggle<CR>
 
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
