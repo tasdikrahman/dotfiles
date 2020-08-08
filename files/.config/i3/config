@@ -130,7 +130,7 @@ for_window [class=Thunar] focus
 
 # Autostart apps
 #exec --no-startup-id firefox
-exec --no-startup-id sleep 2 && xfce4-terminal -e "glances --percpu"
+#exec --no-startup-id sleep 2 && xfce4-terminal -e "glances --percpu"
 #exec --no-startup-id sleep 3 && thunar
 #transparency
 exec --no-startup-id xcompmgr -c
