@@ -4,7 +4,7 @@
 [core]
 	editor = nvim
 [push]
-    default = current
+  default = current
 [color]
 	ui = true
 [alias]
@@ -54,12 +54,6 @@
   simple = log --pretty=format:\" * %s\"
   shortnocolor = log --pretty=format:\"%h %cr %cn %s\"
 
-  # pull
-  pl = pull                         # pull
-
-  # push
-  ps = push                         # push
-
   # rebase
   rc = rebase --continue            # continue rebase
   rs = rebase --skip                # skip rebase
@@ -80,18 +74,8 @@
   sa = stash apply                  # apply stash (restore changes)
   sd = stash drop                   # drop stashes (destory changes)
 
-  # status
-  s = status                        # status
-  st = status                       # status
-  stat = status                     # status
-
   # tag
   t = tag -n                        # show tags with <n> lines of each tag message
-
-  # svn helpers
-  svnr = svn rebase
-  svnd = svn dcommit
-  svnl = svn log --oneline --show-commit
 
 [credential]
 	helper = cache --timeout=3600
