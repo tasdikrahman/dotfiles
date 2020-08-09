@@ -2,4 +2,3 @@
 
 xrandr --output DP2 --off
 xrandr --output HDMI1 --off
-
