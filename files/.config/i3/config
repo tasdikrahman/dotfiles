@@ -7,6 +7,8 @@
 # --> to update this run the following command:
 # wget --backups=1 https://raw.githubusercontent.com/endeavouros-team/i3-EndeavourOS/master/.config/i3/config -P ~/.config/i3/
 
+## NOTE
+# This file has drifted from the one which came with endeavouros, don't try running the update above
 
 # i3 config file
 #
@@ -114,20 +116,6 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-#workspace-edit
-set $ws2 "Terminals "
-set $ws3 "Browser "
-set $ws4 "Files "
-
-#autostart start applications
-#bind program to workspace
-assign [class="Xfce4-terminal"] $ws2
-for_window [class=Xfce4-terminal] focus
-assign [class="(?i)firefox"] $ws3
-for_window [class=(?i)firefox] focus
-assign [class="Thunar"] $ws4
-for_window [class=Thunar] focus
-
 # Autostart apps
 #exec --no-startup-id firefox
 #exec --no-startup-id sleep 2 && xfce4-terminal -e "glances --percpu"
@@ -174,14 +162,24 @@ bindsym --whole-window --border $mod+shift+button4 resize shrink width 5 px or 5
 bindsym --whole-window --border $mod+shift+button5 resize grow width 5 px or 5 ppt
 
 # switch to workspace
+hindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
