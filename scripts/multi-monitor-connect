@@ -1,4 +1,11 @@
 #!/bin/bash
 
 xrandr --output HDMI1 --auto --left-of eDP1
-xrandr --output DP2 --auto --left-of HDMI1
+
+# DP2 here in my case is a monitor which takes input from a VGA port, somehow it wouldn't
+# take the right resultion with auto
+# xrandr --output DP2 --auto --left-of HDMI1
+
+# https://unix.stackexchange.com/a/227894/103864
+# on adding a display mode for the monitor in question with 1920x1080 resolution and 60Hz frequency
+xrandr --output DP2 --mode "1920x1080_60.00" --left-of HDMI1
