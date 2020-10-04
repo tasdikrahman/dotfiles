@@ -8,4 +8,7 @@ xrandr --output HDMI1 --auto --left-of eDP1
 
 # https://unix.stackexchange.com/a/227894/103864
 # on adding a display mode for the monitor in question with 1920x1080 resolution and 60Hz frequency
-xrandr --output DP2 --mode "1920x1080_60.00" --left-of HDMI1
+#xrandr --output DP2 --mode "1920x1080_60.00" --left-of HDMI1
+
+# or set the resolution via the usual way
+xrandr --output DP2 --mode 1920x1080 --rate 60 --left-of HDMI1
