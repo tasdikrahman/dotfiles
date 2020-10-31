@@ -1,0 +1,9 @@
+[Unit]
+Description=Run reflector weekly
+After=network.target
+
+[Timer]
+OnCalendar=Mon 21:00
+
+[Install]
+WantedBy=multi-user.target
