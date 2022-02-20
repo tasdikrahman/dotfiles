@@ -23,3 +23,11 @@ sudo apt-get install fonts-powerline
 ```
 
 https://askubuntu.com/questions/393005/having-problem-with-fonts-in-vim-airline
+
+Make nvim use your vim config, add the following to `~/.config/nvim/init.vim`
+
+```
+set runtimepath+=~/.vim,~/.vim/after
+set packpath+=~/.vim
+source ~/.vimrc
+```
