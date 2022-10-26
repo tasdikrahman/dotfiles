@@ -46,11 +46,11 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-nmap <silent> <C-e>        :NERDTreeToggle<CR>
-vmap <silent> <C-e> <Esc>  :NERDTreeToggle<CR>
-omap <silent> <C-e>        :NERDTreeToggle<CR>
-imap <silent> <C-e> <Esc>  :NERDTreeToggle<CR>
-cmap <silent> <C-e> <C-u>  :NERDTreeToggle<CR>
+nmap <silent> <C-q>        :NERDTreeToggle<CR>
+vmap <silent> <C-q> <Esc>  :NERDTreeToggle<CR>
+omap <silent> <C-q>        :NERDTreeToggle<CR>
+imap <silent> <C-q> <Esc>  :NERDTreeToggle<CR>
+cmap <silent> <C-q> <C-u>  :NERDTreeToggle<CR>
 
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
@@ -81,26 +81,24 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
 
-Plugin 'hashivim/vim-terraform'
-let g:terraform_fmt_on_save=1
-let g:terraform_align=1
-
 Plugin 'fatih/vim-go'
 let g:go_fmt_command = "gofmt"
 let g:go_fmt_command = "goimports"
 let g:go_def_mode = 'godef'
+" saves the file when we call :GoBuild etc, which calles :make in turn
+set autowrite
+" helpers to jump to the errors in the tab when we run :GoBuild
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+" run go build and run with the leader command
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+" Only show quickfix lists
+let g:go_list_type = "quickfix"
+
 
 Plugin 'sebdah/vim-delve'
-
-" Ruby Specific plugins
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-rails'
-Plugin 'vim-scripts/rainbow-end'
-
-" Language agnostic test runner
-Plugin 'janko/vim-test'
-
-Plugin 'terryma/vim-multiple-cursors'
 
 set syntax=off
 set ft=text
@@ -126,6 +124,17 @@ fun! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
+" Install treesitter for syntax highlighting and code folding
+Plugin 'nvim-treesitter/nvim-treesitter'
+
+" setting folding method
+":setlocal foldmethod=syntax
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+
+" to not autofold when opening something in buffer
+autocmd BufReadPost,FileReadPost * normal zR
 
 
 " All of your Plugins must be added before the following line
