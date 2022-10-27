@@ -1,5 +1,11 @@
+" NOTE: run :checkhealth to see for any errors after installation of plugins
+" in nvim
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
+
+" mapping leader to , instead of \
+let mapleader = ","
 
 set encoding=utf8
 let g:airline_powerline_fonts = 1
@@ -13,11 +19,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-commentary'
-noremap <leader>/ :Commentary<cr>
-
+" NOTE is not maintained anymore, switch to https://github.com/dense-analysis/ale
 Plugin 'vim-syntastic/syntastic'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -33,6 +35,7 @@ let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_ruby_checkers=['mri', 'rubocop']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
+" Shows indentline
 Plugin 'Yggdroot/indentLine'
 
 Plugin 'scrooloose/nerdtree'
@@ -52,8 +55,11 @@ omap <silent> <C-q>        :NERDTreeToggle<CR>
 imap <silent> <C-q> <Esc>  :NERDTreeToggle<CR>
 cmap <silent> <C-q> <C-u>  :NERDTreeToggle<CR>
 
+" shows the git status for files on nerdtree
+" NOTE: Has been archived, find a replacement
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
+" Adds the airline at the bottom of the editor bar
 Plugin 'vim-airline/vim-airline'
 
 Plugin 'flazz/vim-colorschemes'
@@ -74,31 +80,54 @@ let g:solarized_visibility= "normal"
 "colorscheme molokai
 "source ~/.vim/bundle/vim-colorschemes/colors/solarized.vim
 
+" Jump to a file via ctrl + p in the directory
 Plugin 'kien/ctrlp.vim'
 let g:ctrlp_show_hidden = 1
 
-Plugin 'scrooloose/nerdcommenter'
+" Shows git changes on the file being edited
 Plugin 'airblade/vim-gitgutter'
-Plugin 'nathanaelkane/vim-indent-guides'
 
 Plugin 'fatih/vim-go'
-let g:go_fmt_command = "gofmt"
 let g:go_fmt_command = "goimports"
 let g:go_def_mode = 'godef'
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+
 " saves the file when we call :GoBuild etc, which calles :make in turn
 set autowrite
+
 " helpers to jump to the errors in the tab when we run :GoBuild
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
-" run go build and run with the leader command
-autocmd FileType go nmap <leader>b  <Plug>(go-build)
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+
 " Only show quickfix lists
 let g:go_list_type = "quickfix"
 
+" ultisnips for snippets
+Plugin 'SirVer/ultisnips'
 
-Plugin 'sebdah/vim-delve'
+" Used for struct splits for text
+Plugin 'AndrewRadev/splitjoin.vim'
 
 set syntax=off
 set ft=text
