@@ -50,6 +50,8 @@ let g:ale_linters = {
   \}
 " Set this. Airline will handle the rest for showing lint errors
 let g:airline#extensions#ale#enabled = 1
+" for coc.vim to handle lsp
+let g:ale_disable_lsp = 1
 
 Plugin 'neoclide/coc.nvim'
 " plucked from https://github.com/neoclide/coc.nvim
@@ -90,6 +92,9 @@ endfunction
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Auto import
+autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
 
 " Shows indentline
 Plugin 'Yggdroot/indentLine'
@@ -147,7 +152,6 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'fatih/vim-go'
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
-let g:go_fmt_command = "goimports"
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
@@ -158,8 +162,6 @@ let g:go_highlight_extra_types = 1
 " https://github.com/dense-analysis/ale/issues/609#issuecomment-305609209
 " When ale and coc collide
 let g:go_fmt_fail_silently = 1
-" for coc.vim to handle lsp
-let g:ale_disable_lsp = 1
 
 " saves the file when we call :GoBuild etc, which calles :make in turn
 set autowrite
