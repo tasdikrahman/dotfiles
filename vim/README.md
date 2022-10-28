@@ -34,8 +34,20 @@ source ~/.vimrc
 
 ## For coc related installations
 
+- You need node to be above 14.14.
+
+```sh
+# check the installation steps if this doesn't work when you are running this again if the version has been bumped off
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - &&\
+sudo apt-get install -y nodejs
+```
+
 - install yarn
-- install coc-json,coc-go, coc-snippets after coc installation as extensions (NOTE: check how to do it without opening the editor)
+- Run
+
+```
+:CocInstall coc-json coc-go coc-snippets
+```
 
 ```sh
 cd ~/.vim/bundle/coc.nvim
@@ -67,4 +79,6 @@ Install gopls with
 ```sh
 go install golang.org/x/tools/gopls@latest
 ```
+
+make sure `GOBIN` is your path
 
