@@ -29,5 +29,42 @@ Make nvim use your vim config, add the following to `~/.config/nvim/init.vim`
 ```
 set runtimepath+=~/.vim,~/.vim/after
 set packpath+=~/.vim
-source ~/.vimrc
+source ~/.vimrc
 ```
+
+## For coc related installations
+
+- install yarn
+- install coc-json,coc-go, coc-snippets after coc installation as extensions (NOTE: check how to do it without opening the editor)
+
+```sh
+cd ~/.vim/bundle/coc.nvim
+yarn install
+yarn build
+```
+
+## for your coc config
+
+```sh
+$ cat ~/.config/nvim/coc-settings.json
+{
+  "diagnostic.displayByAle": true,
+  "languageserver": {
+    "go": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "trace.server": "verbose",
+      "filetypes": ["go"]
+    }
+  }
+}
+```
+
+## For gopls
+
+Install gopls with
+
+```sh
+go install golang.org/x/tools/gopls@latest
+```
+
