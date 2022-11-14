@@ -94,7 +94,14 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Auto import
-autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+" https://github.com/neoclide/coc.nvim/issues/888#issuecomment-823568859
+autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+
+" for debugging, prereq for nvim-dap-go
+Plugin 'mfussenegger/nvim-dap'
+
+" for golang nvim dap extension
+Plugin 'leoluz/nvim-dap-go'
 
 " Shows indentline
 Plugin 'Yggdroot/indentLine'
@@ -209,6 +216,9 @@ set foldexpr=nvim_treesitter#foldexpr()
 " to not autofold when opening something in buffer
 autocmd BufReadPost,FileReadPost * normal zR
 
+" fzf file search in directory
+Plugin 'junegunn/fzf' " this is a dep for fzf.vim from their repo
+Plugin 'junegunn/fzf.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
