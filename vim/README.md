@@ -82,3 +82,10 @@ go install golang.org/x/tools/gopls@latest
 
 make sure `GOBIN` is your path
 
+## For tressitter
+
+Install the helpers for languages
+
+```sh
+:TSInstall bash go hcl json make yaml
+```
