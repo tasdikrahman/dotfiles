@@ -99,9 +99,13 @@ autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.org
 
 " for debugging, prereq for nvim-dap-go
 Plugin 'mfussenegger/nvim-dap'
+nmap <silent> <leader>tb :lua require'dap'.toggle_breakpoint()<CR>
+nmap <silent> <leader>tc :lua require'dap'.continue()<CR>
+nmap <silent> <leader>tt :lua require'dap'.terminate()<CR>
 
 " for golang nvim dap extension
 Plugin 'leoluz/nvim-dap-go'
+nmap <silent> <leader>td :lua require('dap-go').debug_test()<CR>
 
 " for out of box nvim-dap setup with it's UI
 Plugin 'rcarriga/nvim-dap-ui'
