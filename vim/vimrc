@@ -103,6 +103,9 @@ Plugin 'mfussenegger/nvim-dap'
 " for golang nvim dap extension
 Plugin 'leoluz/nvim-dap-go'
 
+" for out of box nvim-dap setup with it's UI
+Plugin 'rcarriga/nvim-dap-ui'
+
 " Shows indentline
 Plugin 'Yggdroot/indentLine'
 
