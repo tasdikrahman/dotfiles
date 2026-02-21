@@ -58,6 +58,12 @@ Plugin 'neoclide/coc.nvim'
 " diagnostics appear/become resolved.
 "set signcolumn=yes
 
+" Install deps
+let g:coc_global_extensions = [
+  \ 'coc-go',
+  \ 'coc-pairs',
+  \]
+
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: There's always complete item selected by default, you may want to enable
 " no select by `"suggest.noselect": true` in your configuration file.
@@ -182,10 +188,16 @@ let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
-" running both vim-go and coc.nvim with gopls. To avoid duplicate formatting/linting, disable vim-go's own fmt and imports since coc handles them
+" running both vim-go and coc.nvim with gopls. To avoid duplicate formatting/linting,
+" disable vim-go's own fmt and imports since coc handles them
+" - coc-go → LSP (completion, imports, diagnostics, hover)
+" - vim-go → build/test/run/coverage/alternate
 let g:go_fmt_autosave = 0
 let g:go_imports_autosave = 0
 let g:go_mod_fmt_autosave = 0
+let g:go_gopls_enabled = 0
+let g:go_code_completion_enabled = 0
+let g:go_doc_keywordprg_enabled = 0
 
 
 " https://github.com/dense-analysis/ale/issues/609#issuecomment-305609209
