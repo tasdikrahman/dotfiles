@@ -60,15 +60,29 @@ yarn build
 ```sh
 $ cat ~/.config/nvim/coc-settings.json
 {
-  "diagnostic.displayByAle": true,
-  "languageserver": {
-    "go": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod"],
-      "trace.server": "verbose",
-      "filetypes": ["go"]
-    }
-  }
+    "go.goplsOptions": {
+      "completeUnimported": true,
+      "usePlaceholders": true,
+      "analyses": {
+        "unusedparams": true,
+        "shadow": true,
+        "nilness": true,
+        "unusedwrite": true
+      },
+      "staticcheck": true
+    },
+    "suggest.noselect": true,
+    "suggest.enablePreview": true,
+    "suggest.floatConfig": {
+      "border": true
+    },
+    "diagnostic.errorSign": "✗",
+    "diagnostic.warningSign": "⚠",
+    "diagnostic.infoSign": "ℹ",
+    "diagnostic.hintSign": "›",
+    "diagnostic.virtualText": true,
+    "diagnostic.virtualTextCurrentLineOnly": true,
+    "hover.autoHide": "true"
 }
 ```
 
