@@ -87,6 +87,7 @@ function! CheckBackspace() abort
    return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
@@ -172,9 +173,8 @@ let g:solarized_visibility= "normal"
 "colorscheme molokai
 "source ~/.vim/bundle/vim-colorschemes/colors/solarized.vim
 
-" Jump to a file via ctrl + p in the directory
-Plugin 'kien/ctrlp.vim'
-let g:ctrlp_show_hidden = 1
+" Jump to a file via ctrl + p in the directory (using fzf)
+nnoremap <C-p> :Files<CR>
 
 " Shows git changes on the file being edited
 Plugin 'airblade/vim-gitgutter'
@@ -224,6 +224,7 @@ endfunction
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>R :GoRun<space>
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 
