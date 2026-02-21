@@ -23,7 +23,6 @@ set clipboard+=unnamed
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 map <F7> mzgg=G`z
-map <F7> mzgg=G`z
 
 fun! <SID>StripTrailingWhitespaces()
   let l = line(".")
@@ -75,6 +74,13 @@ inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
+" checks whether the character behind the cursor is whitespace, which determines
+" whether <TAB> should trigger completion or insert an actual tab character.
+function! CheckBackspace() abort
+   let col = col('.') - 1
+   return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
@@ -95,7 +101,11 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Auto import
 " https://github.com/neoclide/coc.nvim/issues/888#issuecomment-823568859
-autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+" autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+" This checks whether coc.nvim is ready before invoking CocAction,
+" so the error won't fire when you open a file before coc has initialized
+autocmd BufWritePre *.go if coc#rpc#ready() | silent call CocAction('runCommand', 'editor.action.organizeImport') | endif
+
 
 " for debugging, prereq for nvim-dap-go
 Plugin 'mfussenegger/nvim-dap'
@@ -172,6 +182,11 @@ let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
+" running both vim-go and coc.nvim with gopls. To avoid duplicate formatting/linting, disable vim-go's own fmt and imports since coc handles them
+let g:go_fmt_autosave = 0
+let g:go_imports_autosave = 0
+let g:go_mod_fmt_autosave = 0
+
 
 " https://github.com/dense-analysis/ale/issues/609#issuecomment-305609209
 " When ale and coc collide
