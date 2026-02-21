@@ -85,6 +85,28 @@ $ cat ~/.config/nvim/coc-settings.json
     "hover.autoHide": "true"
 }
 ```
+  Key settings explained:
+
+  ┌────────────────────────┬────────────────────────────────────────────────────────────────────────────┐
+  │        Setting         │                                    Why                                     │
+  ├────────────────────────┼────────────────────────────────────────────────────────────────────────────┤
+  │ usePlaceholders        │ Fills in function argument placeholders on completion — very useful for Go │
+  ├────────────────────────┼────────────────────────────────────────────────────────────────────────────┤
+  │ staticcheck            │ Enables staticcheck analyses via gopls (catches more bugs than vet alone)  │
+  ├────────────────────────┼────────────────────────────────────────────────────────────────────────────┤
+  │ analyses.shadow        │ Warns on shadowed variables — common Go footgun                            │
+  ├────────────────────────┼────────────────────────────────────────────────────────────────────────────┤
+  │ analyses.nilness       │ Detects impossible nil checks and nil dereferences                         │
+  ├────────────────────────┼────────────────────────────────────────────────────────────────────────────┤
+  │ analyses.unusedwrite   │ Catches writes to variables never read after                               │
+  ├────────────────────────┼────────────────────────────────────────────────────────────────────────────┤
+  │ suggest.noselect       │ Prevents auto-selecting first item, so <CR> still works normally           │
+  ├────────────────────────┼────────────────────────────────────────────────────────────────────────────┤
+  │ diagnostic.virtualText │ Shows inline errors at end of line without needing to :CocDiagnostics      │
+  └────────────────────────┴────────────────────────────────────────────────────────────────────────────┘
+
+  suggest.noselect is especially important given your <CR> mapping — without it, pressing Enter on a blank line could accidentally accept a completion.
+
 
 ## For gopls
 
