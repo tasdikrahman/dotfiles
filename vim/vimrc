@@ -106,6 +106,8 @@ endfunction
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
+" format on save
+autocmd BufWritePre *.go if coc#rpc#ready() | silent call CocAction('format') | endif
 " Auto import
 " https://github.com/neoclide/coc.nvim/issues/888#issuecomment-823568859
 " autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
