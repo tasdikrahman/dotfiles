@@ -42,9 +42,6 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
-" LSP
-Plugin 'neovim/nvim-lspconfig'
-
 " completion engine + sources
 Plugin 'hrsh7th/nvim-cmp'
 Plugin 'hrsh7th/cmp-nvim-lsp'
@@ -66,6 +63,7 @@ nmap <silent> <leader>td :lua require('dap-go').debug_test()<CR>
 
 " for out of box nvim-dap setup with it's UI
 Plugin 'rcarriga/nvim-dap-ui'
+Plugin 'nvim-neotest/nvim-nio'
 
 " Shows indentline
 Plugin 'Yggdroot/indentLine'
@@ -243,13 +241,12 @@ require('nvim-autopairs').setup()
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
--- LSP
+-- LSP (nvim 0.11 native API)
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-require('lspconfig').gopls.setup({
-  capabilities = capabilities,
-  on_attach = function(_, bufnr)
-    local opts = { noremap = true, silent = true, buffer = bufnr }
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(ev)
+    local opts = { noremap = true, silent = true, buffer = ev.buf }
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, opts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
@@ -258,15 +255,26 @@ require('lspconfig').gopls.setup({
   end,
 })
 
--- nix LSP
-require('lspconfig').nil_ls.setup({
+vim.lsp.config('gopls', {
+  cmd = { 'gopls' },
+  filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
+  root_markers = { 'go.work', 'go.mod', '.git' },
+  capabilities = capabilities,
+})
+vim.lsp.enable('gopls')
+
+vim.lsp.config('nil_ls', {
+  cmd = { 'nil' },
+  filetypes = { 'nix' },
+  root_markers = { 'flake.nix', '.git' },
   capabilities = capabilities,
   settings = {
     ['nil'] = {
-      formatting = { command = { "nixpkgs-fmt" } },
+      formatting = { command = { 'nixpkgs-fmt' } },
     },
   },
 })
+vim.lsp.enable('nil_ls')
 
 -- format + organize imports on save for Go
 vim.api.nvim_create_autocmd('BufWritePre', {
