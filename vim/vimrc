@@ -275,7 +275,7 @@ lua << EOF
 require('nvim-treesitter.configs').setup {
   ensure_installed = { "go", "lua", "vim" },  -- add any other langs you use
   highlight = {
-    enable = true,
+    enable = false,
   },
   indent = {
     enable = true,
