@@ -258,6 +258,16 @@ require('lspconfig').gopls.setup({
   end,
 })
 
+-- nix LSP
+require('lspconfig').nil_ls.setup({
+  capabilities = capabilities,
+  settings = {
+    ['nil'] = {
+      formatting = { command = { "nixpkgs-fmt" } },
+    },
+  },
+})
+
 -- format + organize imports on save for Go
 vim.api.nvim_create_autocmd('BufWritePre', {
   pattern = '*.go',
