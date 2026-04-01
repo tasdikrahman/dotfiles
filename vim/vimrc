@@ -303,7 +303,10 @@ require('nvim-treesitter.configs').setup {
   },
 }
 
--- treesitter folding (per-buffer, runs after filetype plugins)
+EOF
+
+lua << EOF
+-- treesitter folding (separate block so it registers even if cmp/lsp setup above fails)
 vim.api.nvim_create_autocmd('FileType', {
   callback = function(ev)
     pcall(vim.treesitter.start, ev.buf)
