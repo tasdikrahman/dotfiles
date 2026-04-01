@@ -178,10 +178,6 @@ Plugin 'AndrewRadev/splitjoin.vim'
 " Install treesitter for syntax highlighting and code folding
 Plugin 'nvim-treesitter/nvim-treesitter'
 
-" setting folding method
-set foldmethod=expr
-set foldexpr=v:lua.vim.treesitter.foldexpr()
-set nofoldenable
 
 " fzf file search in directory
 Plugin 'junegunn/fzf' " this is a dep for fzf.vim from their repo
@@ -306,4 +302,14 @@ require('nvim-treesitter.configs').setup {
     enable = true,
   },
 }
+
+-- treesitter folding (per-buffer, runs after filetype plugins)
+vim.api.nvim_create_autocmd('FileType', {
+  callback = function(ev)
+    pcall(vim.treesitter.start, ev.buf)
+    vim.opt_local.foldmethod = 'expr'
+    vim.opt_local.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+    vim.opt_local.foldenable = false
+  end,
+})
 EOF
