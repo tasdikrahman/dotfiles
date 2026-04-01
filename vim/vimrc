@@ -250,9 +250,7 @@ Plugin 'nvim-treesitter/nvim-treesitter'
 ":setlocal foldmethod=syntax
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
-
-" to not autofold when opening something in buffer
-autocmd BufReadPost,FileReadPost * normal zR
+set nofoldenable
 
 " fzf file search in directory
 Plugin 'junegunn/fzf' " this is a dep for fzf.vim from their repo
@@ -272,3 +270,16 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+lua << EOF
+require('nvim-treesitter.configs').setup {
+  ensure_installed = { "go", "lua", "vim" },  -- add any other langs you use
+  highlight = {
+    enable = true,
+  },
+  indent = {
+    enable = true,
+  },
+}
+EOF
+
