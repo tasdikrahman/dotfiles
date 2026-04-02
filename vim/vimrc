@@ -274,6 +274,14 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   end,
 })
 
+-- format on save for Nix
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = '*.nix',
+  callback = function()
+    vim.lsp.buf.format({ async = false })
+  end,
+})
+
 -- highlight symbol under cursor
 vim.api.nvim_create_autocmd('CursorHold', {
   callback = function() vim.lsp.buf.document_highlight() end,
