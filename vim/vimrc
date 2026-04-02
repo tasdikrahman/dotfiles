@@ -2,8 +2,7 @@
 " in nvim
 
 set encoding=utf8
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible
 
 " mapping leader to , instead of \
 let mapleader = ","
@@ -32,44 +31,18 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
-
 " https://vi.stackexchange.com/q/202
 :set mouse=a
 
-set rtp+=~/.vim/bundle/Vundle.vim
 set ignorecase
-call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'
-
-" completion engine + sources
-Plugin 'hrsh7th/nvim-cmp'
-Plugin 'hrsh7th/cmp-nvim-lsp'
-Plugin 'L3MON4D3/LuaSnip'
-Plugin 'saadparwaiz1/cmp_luasnip'
-
-" auto pairs (replaces coc-pairs)
-Plugin 'windwp/nvim-autopairs'
-
-" for debugging, prereq for nvim-dap-go
-Plugin 'mfussenegger/nvim-dap'
+" debugging
 nmap <silent> <leader>tb :lua require'dap'.toggle_breakpoint()<CR>
 nmap <silent> <leader>tc :lua require'dap'.continue()<CR>
 nmap <silent> <leader>tt :lua require'dap'.terminate()<CR>
-
-" for golang nvim dap extension
-Plugin 'leoluz/nvim-dap-go'
 nmap <silent> <leader>td :lua require('dap-go').debug_test()<CR>
 
-" for out of box nvim-dap setup with it's UI
-Plugin 'rcarriga/nvim-dap-ui'
-Plugin 'nvim-neotest/nvim-nio'
-
-" Shows indentline
-Plugin 'Yggdroot/indentLine'
-
-Plugin 'scrooloose/nerdtree'
-"autocmd vimenter * NERDTree
+" nerdtree
 " https://github.com/scrooloose/nerdtree/issues/928
 let g:NERDTreeNodeDelimiter = "\u00a0"
 let g:NERDTreeDirArrowExpandable = '▸'
@@ -85,15 +58,10 @@ omap <silent> <C-q>        :NERDTreeToggle<CR>
 imap <silent> <C-q> <Esc>  :NERDTreeToggle<CR>
 cmap <silent> <C-q> <C-u>  :NERDTreeToggle<CR>
 
-" shows the git status for files on nerdtree
-" NOTE: Has been archived, find a replacement
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-
-" Adds the airline at the bottom of the editor bar
-Plugin 'vim-airline/vim-airline'
+" airline
 let g:airline_powerline_fonts = 1
 
-Plugin 'flazz/vim-colorschemes'
+" colorschemes
 syntax enable
 if has('gui_running')
   set background=light
@@ -109,22 +77,17 @@ let g:solarized_italic = 1
 let g:solarized_contrast = "normal"
 let g:solarized_visibility= "normal"
 "colorscheme molokai
-"source ~/.vim/bundle/vim-colorschemes/colors/solarized.vim
 
-" Jump to a file via ctrl + p in the directory (using fzf)
+" fzf
 nnoremap <C-p> :Files<CR>
 
-" Shows git changes on the file being edited
-Plugin 'airblade/vim-gitgutter'
-
-" Git operations inside nvim
-Plugin 'tpope/vim-fugitive'
+" fugitive
 nnoremap <leader>gs :Git status<CR>   " ,gs → git status
 nnoremap <leader>gp :Git pull<CR>    " ,gp → git pull
 nnoremap <leader>gP :Git push<CR>    " ,gP → git push
 nnoremap <leader>gl :Git log<CR>     " ,gl → git log
 
-Plugin 'fatih/vim-go'
+" vim-go
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_highlight_types = 1
@@ -133,9 +96,8 @@ let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
-" running both vim-go and nvim-lspconfig with gopls. To avoid duplicates,
-" disable vim-go's own fmt/imports/lsp since lspconfig handles them
-" - nvim-lspconfig → LSP (completion, imports, diagnostics, hover)
+" nvim-lspconfig handles fmt/imports/lsp — disable in vim-go to avoid duplicates
+" - LSP → completion, imports, diagnostics, hover
 " - vim-go → build/test/run/coverage/alternate
 let g:go_fmt_autosave = 0
 let g:go_imports_autosave = 0
@@ -146,10 +108,10 @@ let g:go_doc_keywordprg_enabled = 0
 let g:go_def_mapping_enabled = 0
 let g:go_fmt_fail_silently = 1
 
-" saves the file when we call :GoBuild etc, which calles :make in turn
+" saves the file when we call :GoBuild etc
 set autowrite
 
-" helpers to jump to the errors in the tab when we run :GoBuild
+" helpers to jump to errors in quickfix
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
@@ -176,36 +138,57 @@ autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit'
 autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 
-" Only show quickfix lists
 let g:go_list_type = "quickfix"
 
-" Used for struct splits for text
-Plugin 'AndrewRadev/splitjoin.vim'
-
-" Install treesitter for syntax highlighting and code folding
-Plugin 'nvim-treesitter/nvim-treesitter'
-
-
-" fzf file search in directory
-Plugin 'junegunn/fzf' " this is a dep for fzf.vim from their repo
-Plugin 'junegunn/fzf.vim'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+filetype plugin indent on
 
 lua << EOF
+-- bootstrap lazy.nvim (auto-installs on first run)
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not vim.uv.fs_stat(lazypath) then
+  vim.fn.system({
+    'git', 'clone', '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+-- plugins (all loaded at startup, no lazy loading)
+require('lazy').setup({
+  -- completion
+  'hrsh7th/nvim-cmp',
+  'hrsh7th/cmp-nvim-lsp',
+  'L3MON4D3/LuaSnip',
+  'saadparwaiz1/cmp_luasnip',
+  -- auto pairs
+  'windwp/nvim-autopairs',
+  -- debugging
+  'mfussenegger/nvim-dap',
+  'leoluz/nvim-dap-go',
+  'rcarriga/nvim-dap-ui',
+  'nvim-neotest/nvim-nio',
+  -- UI
+  'Yggdroot/indentLine',
+  'scrooloose/nerdtree',
+  'Xuyuanp/nerdtree-git-plugin',
+  'vim-airline/vim-airline',
+  'flazz/vim-colorschemes',
+  'airblade/vim-gitgutter',
+  -- git
+  'tpope/vim-fugitive',
+  -- languages
+  'fatih/vim-go',
+  'AndrewRadev/splitjoin.vim',
+  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+  -- fzf
+  'junegunn/fzf',
+  'junegunn/fzf.vim',
+}, {
+  install = { missing = true },
+  change_detection = { enabled = false },
+})
+
 -- completion
 local cmp = require('cmp')
 local luasnip = require('luasnip')
@@ -302,24 +285,20 @@ vim.api.nvim_create_autocmd('CursorMoved', {
 -- treesitter
 require('nvim-treesitter.configs').setup {
   ensure_installed = { "go", "lua", "vim" },
-  highlight = {
-    enable = false,
-  },
-  indent = {
-    enable = true,
-  },
+  highlight = { enable = false },
+  indent = { enable = true },
 }
 
-EOF
-
-lua << EOF
--- treesitter folding (separate block so it registers even if cmp/lsp setup above fails)
+-- treesitter folding (deferred so it runs after all FileType handlers)
 vim.api.nvim_create_autocmd('FileType', {
   callback = function(ev)
-    pcall(vim.treesitter.start, ev.buf)
-    vim.opt_local.foldmethod = 'expr'
-    vim.opt_local.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-    vim.opt_local.foldlevel = 99
+    vim.schedule(function()
+      if not vim.api.nvim_buf_is_valid(ev.buf) then return end
+      pcall(vim.treesitter.start, ev.buf)
+      vim.opt_local.foldmethod = 'expr'
+      vim.opt_local.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+      vim.opt_local.foldlevel = 99
+    end)
   end,
 })
 EOF
