@@ -283,11 +283,16 @@ vim.api.nvim_create_autocmd('CursorMoved', {
 })
 
 -- treesitter
-require('nvim-treesitter.configs').setup {
-  ensure_installed = { "go", "lua", "vim" },
-  highlight = { enable = false },
-  indent = { enable = true },
-}
+-- pcall guards against first-run failure: lazy.nvim installs plugins in this
+-- same lua block, so nvim-treesitter may not be available yet on a fresh install
+local ts_ok, tsconfigs = pcall(require, 'nvim-treesitter.configs')
+if ts_ok then
+  tsconfigs.setup {
+    ensure_installed = { "go", "lua", "vim" },
+    highlight = { enable = false },
+    indent = { enable = true },
+  }
+end
 
 -- treesitter folding (deferred so it runs after all FileType handlers)
 vim.api.nvim_create_autocmd('FileType', {
