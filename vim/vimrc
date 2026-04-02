@@ -117,6 +117,9 @@ nnoremap <C-p> :Files<CR>
 " Shows git changes on the file being edited
 Plugin 'airblade/vim-gitgutter'
 
+" Git operations inside nvim
+Plugin 'tpope/vim-fugitive'
+
 Plugin 'fatih/vim-go'
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
