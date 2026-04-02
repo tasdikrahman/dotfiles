@@ -35,6 +35,10 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 :set mouse=a
 
 set ignorecase
+" faster CursorHold trigger — makes LSP document highlight and hover feel responsive (default is 4000ms)
+set updatetime=300
+" always show sign column so buffer doesn't shift left/right when LSP diagnostics appear/disappear
+set signcolumn=yes
 
 " debugging
 nmap <silent> <leader>tb :lua require'dap'.toggle_breakpoint()<CR>
@@ -246,6 +250,19 @@ vim.lsp.config('gopls', {
   filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
   root_markers = { 'go.work', 'go.mod', '.git' },
   capabilities = capabilities,
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,  -- flag unused function parameters
+        shadow = true,        -- warn on shadowed variables (common Go footgun)
+        nilness = true,       -- detect impossible nil checks and nil dereferences
+        unusedwrite = true,   -- catch writes to variables never read after
+      },
+      staticcheck = true,       -- enable staticcheck analyses via gopls (catches more than vet)
+      usePlaceholders = true,   -- fill in function argument placeholders on completion
+      completeUnimported = true, -- suggest completions from unimported packages
+    },
+  },
 })
 vim.lsp.enable('gopls')
 
