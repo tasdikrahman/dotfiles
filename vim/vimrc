@@ -119,6 +119,10 @@ Plugin 'airblade/vim-gitgutter'
 
 " Git operations inside nvim
 Plugin 'tpope/vim-fugitive'
+nnoremap <leader>gs :Git status<CR>   " ,gs → git status
+nnoremap <leader>gp :Git pull<CR>    " ,gp → git pull
+nnoremap <leader>gP :Git push<CR>    " ,gP → git push
+nnoremap <leader>gl :Git log<CR>     " ,gl → git log
 
 Plugin 'fatih/vim-go'
 let g:go_def_mode='gopls'
