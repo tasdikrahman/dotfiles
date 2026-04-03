@@ -124,7 +124,9 @@ cargo install tree-sitter-cli
 export PATH="$HOME/.cargo/bin:$PATH"
 ```
 
-**Treesitter parsers** — install after opening nvim (requires nvim 0.12+):
+**Treesitter version** — nvim-treesitter is pinned to `v0.10.0`, the last release supporting nvim 0.11. Support for nvim 0.11 was dropped after this tag. If you upgrade to nvim 0.12+, you can remove the pin.
+
+**Treesitter parsers** — install after opening nvim:
 
 ```
 :TSInstall bash go hcl json make yaml
