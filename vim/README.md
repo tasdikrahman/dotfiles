@@ -264,3 +264,12 @@ Uses nvim-dap + nvim-dap-go + nvim-dap-ui. The UI opens automatically when a deb
 ```sh
 go install github.com/go-delve/delve/cmd/dlv@latest
 ```
+
+---
+
+## TODO
+
+Plugins to evaluate and add:
+
+- **telescope.nvim** — modern replacement for fzf.vim. Adds LSP symbol search, diagnostics browsing, git log, and more in a unified fuzzy finder UI. Widely used in the nvim community.
+- **trouble.nvim** — better diagnostics/quickfix panel. Shows LSP errors and warnings across the project in a dedicated sidebar, replacing the default quickfix list.
