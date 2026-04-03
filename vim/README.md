@@ -89,11 +89,23 @@ lazy.nvim will auto-install all plugins on the first open. After it finishes, re
 
 ### Ubuntu / Debian
 
-**Fonts (for vim-airline powerline symbols):**
+**Fonts (for vim-airline, NERDTree icons, gitgutter symbols):**
+
+`fonts-powerline` alone is not enough for NERDTree file icons — you need a full Nerd Font installed and set as your terminal font.
 
 ```sh
 sudo apt-get install fonts-powerline
+
+# download and install a Nerd Font (JetBrainsMono used here as an example)
+wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
+unzip JetBrainsMono.zip -d ~/.local/share/fonts/
+fc-cache -fv
 ```
+
+Then set your terminal to use the Nerd Font:
+- **GNOME Terminal**: Preferences → your profile → Text → enable Custom font → select "JetBrainsMono Nerd Font Mono"
+
+Reopen nvim after changing the terminal font.
 
 **gopls (Go LSP):**
 
