@@ -103,6 +103,19 @@ go install golang.org/x/tools/gopls@latest
 
 Make sure `$GOBIN` (or `$GOPATH/bin`) is in your `$PATH`.
 
+**Delve (Go debugger):**
+
+```sh
+go install github.com/go-delve/delve/cmd/dlv@latest
+```
+
+**Cargo** — required before installing any of the tools below:
+
+```sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source "$HOME/.cargo/env"
+```
+
 **Nix LSP + formatter:**
 
 ```sh
@@ -144,11 +157,27 @@ Add to `configuration.nix`:
 ```nix
 environment.systemPackages = with pkgs; [
   neovim
-  gopls
-  nil
-  nixpkgs-fmt
-  (vimPlugins.nvim-treesitter.withPlugins (p: [ p.go p.lua p.vim p.bash p.json p.yaml ]))
+  gcc          # required to compile nvim-treesitter parsers
+  tree-sitter  # treesitter CLI, required by nvim-treesitter
+  luarocks     # lua package manager, required by some nvim plugins
+  gopls        # Go LSP
+  go           # Go toolchain
+  nil          # Nix LSP
+  nixpkgs-fmt  # Nix formatter used by nil_ls
 ];
+
+programs.zsh = {
+  enable = true;
+  ohMyZsh = {
+    enable = true;
+    theme = "afowler";
+    plugins = [ "git" "sudo" "autojump" ];
+  };
+};
+
+users.users.yourusername = {
+  shell = pkgs.zsh;
+};
 ```
 
 Then:
@@ -156,6 +185,8 @@ Then:
 ```sh
 sudo nixos-rebuild switch
 ```
+
+Note: on NixOS, `:TSInstall` works because `gcc` and `tree-sitter` CLI are installed via Nix — parsers are compiled on demand just like on Ubuntu.
 
 ### macOS
 
