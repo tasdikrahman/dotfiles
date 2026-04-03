@@ -111,10 +111,28 @@ cargo install nil
 cargo install nixpkgs-fmt
 ```
 
-**Treesitter parsers** — install after opening nvim:
+**Treesitter CLI** — required for `:TSInstall` to work:
+
+```sh
+# install clang headers first (required to compile tree-sitter-cli)
+sudo apt install libclang-dev
+
+# install via cargo
+cargo install tree-sitter-cli
+
+# add cargo bin to PATH (add this to ~/.zshrc or ~/.bashrc)
+export PATH="$HOME/.cargo/bin:$PATH"
+```
+
+**Treesitter parsers** — install after opening nvim (requires nvim 0.12+):
 
 ```
 :TSInstall bash go hcl json make yaml
+```
+
+To verify treesitter is working for a filetype, open a file and run:
+```
+:lua print(vim.inspect(vim.treesitter.get_parser(0):lang()))
 ```
 
 ### NixOS

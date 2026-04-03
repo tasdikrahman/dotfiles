@@ -184,7 +184,8 @@ require('lazy').setup({
   -- languages
   'fatih/vim-go',
   'AndrewRadev/splitjoin.vim',
-  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+  -- pinned to v0.10.0: last release supporting Nvim 0.11 (support dropped after this)
+  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate', tag = 'v0.10.0' },
   -- fzf
   'junegunn/fzf',
   'junegunn/fzf.vim',
