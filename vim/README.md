@@ -223,6 +223,7 @@ go install golang.org/x/tools/gopls@latest
 |---|---|
 | `,` | Leader key |
 | `Ctrl+p` | Fuzzy file search (fzf) |
+| `:Rg` | Fuzzy search across file contents using ripgrep (fzf.vim); useful for finding variable names, strings, etc. |
 | `Ctrl+q` | Toggle NERDTree |
 | `Ctrl+n` / `Ctrl+m` | Next / previous quickfix error |
 | `,a` | Close quickfix |
@@ -244,6 +245,10 @@ go install golang.org/x/tools/gopls@latest
 | `gr` | Go to references (LSP) |
 | `K` | Hover documentation (LSP) |
 | `F7` | Auto-indent entire file |
+| `zM` | Close all folds |
+| `zR` | Open all folds |
+| `zm` | Close one fold level |
+| `zr` | Open one fold level |
 
 ---
 
